@@ -21,7 +21,7 @@ namespace ExperienceGenerator
 
 
         public int Threads { get; set; }
-        public virtual TimeSpan WarmUpInterval { get; set; } = TimeSpan.FromSeconds(10);
+        public virtual TimeSpan WarmUpInterval { get; set; } = TimeSpan.FromSeconds(1);
 
         public IEnumerable<JobInfo> Jobs => _jobs.Values.ToArray();
 
@@ -38,7 +38,6 @@ namespace ExperienceGenerator
 
             for (var i = 0; i < Threads; i++)
             {
-                Thread.Sleep(1000);
                 var count = i == Threads - 1 ? info.Specification.VisitorCount - i*batchSize : batchSize;
 
                 if (count <= 0)
@@ -90,7 +89,7 @@ namespace ExperienceGenerator
                     {
                         while (job.JobStatus == JobStatus.Paused)
                         {
-                            Thread.Sleep(1000);
+                            Thread.Sleep(100);
                         }
 
                         if (job.JobStatus > JobStatus.Paused)

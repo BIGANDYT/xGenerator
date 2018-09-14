@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Web;
 using Colossus.Integration.Processing;
 using Sitecore.Analytics;
@@ -10,18 +9,6 @@ namespace Colossus.Integration
 {
     internal class ActionExecutor : IActionExecutor
     {
-        //private readonly IServiceProvider _serviceProvider;
-
-        //public ActionExecutor(IServiceProvider serviceProvider)
-        //{
-        //    _serviceProvider = serviceProvider;
-        //    RequestActions = new List<IRequestAction>();
-
-
-        //    RequestActions.Add(new TriggerEventsAction());
-        //    RequestActions.Add(new TriggerOutcomesAction(_serviceProvider));
-        //}
-
         public List<IRequestAction> RequestActions { get; set; }
 
         public ActionExecutor()

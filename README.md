@@ -1,7 +1,4 @@
-# Experience Generator
-
-[![Build status](https://ci.appveyor.com/api/projects/status/b610w5q4qosfyh7r/branch/master?svg=true)](https://ci.appveyor.com/project/jeanfrancoislarente/xgenerator/branch/master)
-
+#Experience Generator
 
 Generate "realistically looking" traffic for the Sitecore Experience Database (xDB) with configurable patterns, including:
 
@@ -16,7 +13,9 @@ Generate "realistically looking" traffic for the Sitecore Experience Database (x
  - Outcomes
  - Campaigns
 
-# Experience Profile Generator
+For build instructions please refer to [Build Instructions.txt](src/Build instructions.txt)
+
+#Experience Profile Generator
 
 Generate visits for Sitecore contacts (xProfile) with configurable settings:
 
@@ -49,7 +48,7 @@ Contains walkers to visit sitecore pages with required behavior strategy:
 * Random walker – opens random page or landing page. According to required count of visits\bounces parses html output, extracts <a href=”…”/> elements with relative hyperlink path and choose random one to visit if possible.
 Both walkers adds page event data if required from configuration.
 
-## General processing flow for XGenerator:
+##General processing flow for XGenerator:
 1.	User opens XGenerator tools, performs job configuration.
 2.	User clicks “Start” button
 3.	ExperienceGenerator.Client pass received configuration to ExperienceGenerator parser
@@ -58,21 +57,7 @@ Both walkers adds page event data if required from configuration.
 6.	Sitecore receives requests as is, setups analytics tracker by calling own pipelines
 7.	Colossus.Intergration processors executed inside Sitecore pipelines to patch analytics tracker with current customizations of request
 
-## Installation Instructions
-
-Deployment to Sitecore:
-
-1)  Open "src\ExperienceGenerator.Client\App_Config\Include\ExperienceGenerator\zExperienceGenerator.DevSettings.config" and change "experienceGeneratorSource" variable to xGenerator source location
-2) Open "src\publishsettings.targets" and change publishUrl to the Sitecore host name
-3) Open ExperienceGenerator.sln in Visual Studio
-4) Perform Web publish for all web projects in solution using "local" profile
-5) Go to the %instanceName%/unicorn.aspx page and synchronize "ExperienceGenerator" configuration 
-
-## Package Building Instructions
-- Building the installation package requires Sitecore Rocks.
-- The package definition is in ExperienceGenerator.Client\ExperienceGenerator.package. You need to point it to a Sitecore install with Experience Generator installed to build the package.
-
-## Extension points:
+##Extension points:
 *	Variable Factories in XGenParser class that fill each request with variables based on configuration (device, date, duration, channel, campaign etc.) allow us setup new factory to fill new request variable
 *	Processors in Colossus.Integration library patches all requests with provided request variables.
 *	XGenParser – class that converts configuration to set of requests. Executes all request variable factories.
