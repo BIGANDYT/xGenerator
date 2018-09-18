@@ -183,9 +183,6 @@
     <Compile Include="Templates.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="App_Config\Include\ExperienceGenerator\ExperienceGenerator.config">
       <SubType>Designer</SubType>
     </Content>

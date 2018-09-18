@@ -93,7 +93,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
     <Content Include="App_Config\Include\Feature\AnalyticsUpdater.config">
       <SubType>Designer</SubType>
     </Content>
